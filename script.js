@@ -26,9 +26,11 @@ let turn = 0
 function click1() {
     if (veld1.style.backgroundImage == "") {
         turn++;
-        if (turn % 2 == 0) { veld1.style.backgroundImage = speler2 
+        if (turn % 2 == 0) {
+            veld1.style.backgroundImage = speler2
         }
-        else { veld1.style.backgroundImage = speler1 
+        else {
+            veld1.style.backgroundImage = speler1
         }
         check()
     }
@@ -107,72 +109,42 @@ function click9() {
 }
 
 function check() {
-    if (veld1.style.backgroundImage == speler1 && veld2.style.backgroundImage == speler1 && veld3.style.backgroundImage == speler1) {
-        win1()
-    }
-    else if (veld4.style.backgroundImage == speler1 && veld5.style.backgroundImage == speler1 && veld6.style.backgroundImage == speler1) {
-        win1()
-    }
-    else if (veld7.style.backgroundImage == speler1 && veld8.style.backgroundImage == speler1 && veld9.style.backgroundImage == speler1) {
-        win1()
-    }
-    else if (veld1.style.backgroundImage == speler1 && veld5.style.backgroundImage == speler1 && veld9.style.backgroundImage == speler1) {
-        win1()
-    }
-    else if (veld3.style.backgroundImage == speler1 && veld5.style.backgroundImage == speler1 && veld7.style.backgroundImage == speler1) {
-        win1()
-    }
-    else if (veld1.style.backgroundImage == speler1 && veld4.style.backgroundImage == speler1 && veld7.style.backgroundImage == speler1) {
-        win1()
-    }
-    else if (veld2.style.backgroundImage == speler1 && veld5.style.backgroundImage == speler1 && veld8.style.backgroundImage == speler1) {
-        win1()
-    }
-    else if (veld3.style.backgroundImage == speler1 && veld6.style.backgroundImage == speler1 && veld9.style.backgroundImage == speler1) {
-        win1()
-    }
 
-    else if (veld1.style.backgroundImage == speler2 && veld2.style.backgroundImage == speler2 && veld3.style.backgroundImage == speler2) {
-        win2()
+    if (veld1.style.backgroundImage == veld2.style.backgroundImage && veld2.style.backgroundImage  == veld3.style.backgroundImage && veld1.style.backgroundImage != "") {
+        win()
     }
-    else if (veld4.style.backgroundImage == speler2 && veld5.style.backgroundImage == speler2 && veld6.style.backgroundImage == speler2) {
-        win2()
-    }
-    else if (veld7.style.backgroundImage == speler2 && veld8.style.backgroundImage == speler2 && veld9.style.backgroundImage == speler2) {
-        win2()
-    }
-    else if (veld1.style.backgroundImage == speler2 && veld5.style.backgroundImage == speler2 && veld9.style.backgroundImage == speler2) {
-        win2()
-    }
-    else if (veld3.style.backgroundImage == speler2 && veld5.style.backgroundImage == speler2 && veld7.style.backgroundImage == speler2) {
-        win2()
-    }
-    else if (veld1.style.backgroundImage == speler2 && veld4.style.backgroundImage == speler2 && veld7.style.backgroundImage == speler2) {
-        win2()
-    }
-    else if (veld2.style.backgroundImage == speler2 && veld5.style.backgroundImage == speler2 && veld8.style.backgroundImage == speler2) {
-        win2()
-    }
-    else if (veld3.style.backgroundImage == speler2 && veld6.style.backgroundImage == speler2 && veld9.style.backgroundImage == speler2) {
-        win2()
-    }
-    else if (turn == 9) {
+     else if (veld4.style.backgroundImage == veld5.style.backgroundImage && veld5.style.backgroundImage  == veld6.style.backgroundImage && veld4.style.backgroundImage != "") {
+        win()
+    } else if (veld7.style.backgroundImage == veld8.style.backgroundImage && veld8.style.backgroundImage == veld9.style.backgroundImage && veld7.style.backgroundImage != "") {
+        win()
+    } else if (veld1.style.backgroundImage == veld4.style.backgroundImage && veld4.style.backgroundImage == veld7.style.backgroundImage && veld1.style.backgroundImage != "") {
+        win()
+    } else if (veld2.style.backgroundImage == veld5.style.backgroundImage && veld5.style.backgroundImage == veld8.style.backgroundImage && veld2.style.backgroundImage != "") {
+        win()
+    } else if (veld3.style.backgroundImage == veld6.style.backgroundImage && veld6.style.backgroundImage == veld9.style.backgroundImage && veld3.style.backgroundImage != "") {
+        win()
+    } else if (veld1.style.backgroundImage == veld5.style.backgroundImage && veld5.style.backgroundImage == veld9.style.backgroundImage && veld1.style.backgroundImage != "") {
+        win()
+    } else if (veld3.style.backgroundImage == veld5.style.backgroundImage && veld5.style.backgroundImage == veld7.style.backgroundImage && veld3.style.backgroundImage != "") {
+        win()
+    } else if (turn == 9) {
         gelijkspel()
     }
 }
 
-function win1(){
-    document.getElementById("veldContainer").innerHTML += "<p>speler 1 wint!</p>" + "<br> <button onclick='opnieuw()'> Opnieuw </button>"
+function win(){
+    if(turn % 2 == 0) {
+        document.getElementById("veldContainer").innerHTML += "<p>speler 2 wint!</p>" + "<br> <button onclick='opnieuw()'> Opnieuw </button>"
+    }
+    else {
+        document.getElementById("veldContainer").innerHTML += "<p>speler 1 wint!</p>" + "<br> <button onclick='opnieuw()'> Opnieuw </button>"
+    }
 }
 
-function win2(){
-    document.getElementById("veldContainer").innerHTML += "<p>speler 2 wint!</p>" + "<br> <button onclick='opnieuw()'> Opnieuw </button>"
-}
-
-function gelijkspel(){
+function gelijkspel() {
     document.getElementById("veldContainer").innerHTML += "<p>Gelijkspel!</p>" + "<br> <button onclick='opnieuw()'> Opnieuw </button>"
 }
 
-function opnieuw(){
+function opnieuw() {
     location.reload()
 }
